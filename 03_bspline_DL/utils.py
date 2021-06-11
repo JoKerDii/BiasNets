@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -17,8 +16,7 @@ def sum_poisson_deviance(y_true, y_pred):
         2
         * np.add(
             np.multiply(
-                np.add(np.log(y_true.clip(eps)), -
-                       np.log(y_pred.clip(eps))), y_true
+                np.add(np.log(y_true.clip(eps)), -np.log(y_pred.clip(eps))), y_true
             ),
             np.add(-y_true, y_pred),
         ).sum()
@@ -39,8 +37,7 @@ def mean_poisson_deviance(y_true, y_pred):
         2
         * np.add(
             np.multiply(
-                np.add(np.log(y_true.clip(eps)), -
-                       np.log(y_pred.clip(eps))), y_true
+                np.add(np.log(y_true.clip(eps)), -np.log(y_pred.clip(eps))), y_true
             ),
             np.add(-y_true, y_pred),
         ).mean()
@@ -136,8 +133,7 @@ def plot_CE_graph(config, train_loss, valid_loss):
     fig = plt.figure(figsize=(12, 12))
     plt.title("Train/Validation Cross Entropy Loss", fontsize=20)
     plt.plot(list(np.arange(len(train_loss)) + 1), train_loss, label="train")
-    plt.plot(list(np.arange(len(train_loss)) + 1),
-             valid_loss, label="validation")
+    plt.plot(list(np.arange(len(train_loss)) + 1), valid_loss, label="validation")
     plt.xlabel("num_epochs", fontsize=18)
     plt.ylabel("loss", fontsize=18)
     plt.xticks(fontsize=12)
